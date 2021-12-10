@@ -18,8 +18,8 @@ fun main() {
     }
 
 
-    data class AimedSubmarine(val horizontal: Int = 0, val depth: Int = 0, val aim: Int = 0) {
-        fun parse(command: String): AimedSubmarine {
+    data class SubmarineWithAim(val horizontal: Int = 0, val depth: Int = 0, val aim: Int = 0) {
+        fun parse(command: String): SubmarineWithAim {
             val (move, x) = command.split(" ")
             val amount = x.toInt()
             return when (move) {
@@ -38,7 +38,7 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        return input.fold(AimedSubmarine()) { sub, command -> sub.parse(command) }.reportPosition()
+        return input.fold(SubmarineWithAim()) { sub, command -> sub.parse(command) }.reportPosition()
     }
 
     // test if implementation meets criteria from the description, like:
