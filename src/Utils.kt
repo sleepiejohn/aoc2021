@@ -27,3 +27,9 @@ fun <E> List<List<E>>.transpose(): List<List<E>> {
 }
 
 fun <T> identity(t: T) = t
+
+val <T> List<T>.tail: List<T>
+    get() = drop(1)
+
+val <T> List<T>.head: T
+    get() = first()
