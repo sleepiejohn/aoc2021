@@ -33,3 +33,5 @@ val <T> List<T>.tail: List<T>
 
 val <T> List<T>.head: T
     get() = first()
+
+data class Position(val x: Int, val y: Int)

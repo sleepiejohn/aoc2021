@@ -6,18 +6,8 @@ fun main() {
     fun columns(input: List<String>) = input.map { it.split("").filterNot(String::isBlank) }
         .transpose()
 
-    fun commonRating(
-        columns: List<List<String>>,
-        rateType: RateType
-    ) = columns.map {
-        val freq = it.groupingBy(::identity).eachCount()
-        rateType(freq)
-    }
-
     fun rate(columns: List<List<String>>, rateType: RateType): Int {
-        return commonRating(columns, rateType)
-            .joinToString(separator = "")
-            .toInt(2)
+        return columns.map { rateType(it.groupingBy(::identity).eachCount()) }.joinToString(separator = "").toInt(2)
     }
 
     val comparator = { a: Map.Entry<String, Int>, b: Map.Entry<String, Int> ->

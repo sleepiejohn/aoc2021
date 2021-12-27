@@ -1,6 +1,6 @@
 @file:Suppress("UNREACHABLE_CODE")
 
-data class Position(val x: Int, val y: Int)
+
 data class Entry(var value: Int, var marked: Boolean = false)
 
 class Board(input: List<List<Int>>) {
